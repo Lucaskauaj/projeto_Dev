@@ -1,101 +1,114 @@
-body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     background: linear-gradient(135deg, #ede7f6 0%, #c5b3f2 100%);
-      text-align: justify;
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
+/* Aqui começa o estilo do site, para deixar tudo mais bonito */
 
+/* O corpo da página (tudo que aparece) */
+body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte das letras */
+     background: linear-gradient(135deg, #ede7f6 0%, #c5b3f2 100%); /* Fundo colorido em degradê */
+      text-align: justify; /* Deixa o texto alinhado dos dois lados */
+      margin: 0; /* Tira a margem padrão */
+      padding: 0; /* Tira o espaço interno padrão */
+      min-height: 100vh; /* Faz a página ocupar a tela toda */
     }
     
+/* Menu azul lá em cima */
 .navbar {
-  background: #2563eb;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  background: #2563eb; /* Cor azul */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07); /* Sombra embaixo do menu */
   padding: 0; 
 }
 
+/* Lista dos botões do menu */
 .navbar ul {
-  display: flex;
-  list-style: none;
+  display: flex; /* Deixa os botões um do lado do outro */
+  list-style: none; /* Tira as bolinhas da lista */
   margin: 0;
   padding: 0 20px;
-  justify-content: center;
+  justify-content: center; /* Centraliza os botões */
 }
 
+/* Cada botão do menu */
 .navbar li {
-  margin: 0 18px;
+  margin: 0 18px; /* Espaço entre os botões */
 }
 
+/* O link do menu (o botão mesmo) */
 .navbar a {
   display: block;
-  padding: 18px 14px;
-  color: #fff;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: background 0.2s, color 0.2s;
+  padding: 18px 14px; /* Espaço dentro do botão */
+  color: #fff; /* Cor da letra: branco */
+  font-weight: 600; /* Deixa a letra mais grossa */
+  text-decoration: none; /* Tira o sublinhado */
+  border-radius: 8px; /* Cantos arredondados */
+  transition: background 0.2s, color 0.2s; /* Animação quando passa o mouse */
   font-size: 1.08rem;
   letter-spacing: 0.5px;
 }
 
+/* Quando passa o mouse no botão do menu */
 .navbar a:hover,
 .navbar a:focus {
-  background-color: #1e40af;
-  color: #e0e7ff;
+  background-color: #1e40af; /* Fica azul escuro */
+  color: #e0e7ff; /* Letra fica azul clarinho */
 }
 
-/* Container */
+/* Quadrado branco onde fica o conteúdo principal */
 .container {
   background: white;
   max-width: 600px;
   width: 100%;
-  border-radius: 18px;
+  border-radius: 18px; /* Cantos arredondados */
   padding: 28px 20px;
-  box-shadow: 0 4px 12px rgba(37,99,235,0.10);
-  margin: 40px auto 0 auto;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.10); /* Sombra */
+  margin: 40px auto 0 auto; /* Centraliza na tela */
 }
 
+/* Título grande */
 h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #2563eb;
+  color: #2563eb; /* Azul */
   letter-spacing: 1px;
 }
 
 /* Lista de contatos */
 ul.contatos {
-  list-style: none;
+  list-style: none; /* Tira as bolinhas da lista */
   padding: 0;
   margin: 0 0 20px 0;
-  max-height: 350px;
-  overflow-y: auto;
+  max-height: 350px; /* Altura máxima, aparece barra de rolagem se passar */
+  overflow-y: auto; /* Barra de rolagem se precisar */
   border: 1px solid #ddd;
   border-radius: 6px;
   background: #f8faff;
 }
 
+/* Cada contato na lista */
 ul.contatos li {
-  display: flex;
+  display: flex; /* Deixa o checkbox e o texto um do lado do outro */
   align-items: center;
   border-bottom: 1px solid #eee;
   padding: 12px 10px;
 }
 
+/* Tira a linha do último contato */
 ul.contatos li:last-child {
   border-bottom: none;
 }
 
+/* Informações do contato (nome, número, mensagem) */
 .contato-info {
   margin-left: 12px;
   flex-grow: 1;
 }
 
+/* Nome do contato em negrito */
 .contato-info strong {
   display: block;
   font-size: 1.1rem;
   color: #222;
 }
 
+/* Número e mensagem do contato em cinza e itálico */
 .contato-info small {
   color: #666;
   display: block;
@@ -103,14 +116,15 @@ ul.contatos li:last-child {
   margin-top: 3px;
 }
 
+/* Botão azul bonito */
 button {
-  background-color: #2563eb;
-  color: white;
+  background-color: #2563eb; /* Azul */
+  color: white; /* Letra branca */
   font-weight: bold;
   border: none;
-  cursor: pointer;
+  cursor: pointer; /* Muda o mouse para mãozinha */
   transition: background-color 0.2s ease;
-  width: 100%;
+  width: 100%; /* Ocupa toda a largura */
   padding: 10px;
   margin-top: 8px;
   margin-bottom: 15px;
@@ -118,7 +132,8 @@ button {
   font-size: 1rem;
 }
 
+/* Botão quando passa o mouse */
 button:hover {
-  background-color: #1e40af;
+  background-color: #1e40af; /* Azul escuro */
 }
 
