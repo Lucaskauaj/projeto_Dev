@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lista de Contatos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='contatos.css') }}">
+  <style>
+  </style>
+</head>
+<body>
+     <nav class="navbar">
+    <ul>
+      <li><a href="/">Sobre</a></li>
+      <li><a href="/adicionar_cont">Adicionar Contatos</a></li>
+      <li><a href="/arquivos">Enviar Arquivo</a></li>
+      <li><a href="/List">Lista de Contatos</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <h2>Lista de Contatos</h2>
+    <ul class="contatos" id="listaContatos">
+      <!-- Contatos serão inseridos aqui via JS -->
+    </ul>
+    <button id="enviar" type="button" class="btn btn-outline-primary">Enviar Mensagens</button>
+  </div>
+
+  <script>
+    const contatos = [
+      { nome: 'João Silva', numero: '5511999999999', mensagem: 'Oi João, tudo bem?' },
+      { nome: 'Maria Oliveira', numero: '5511988888888', mensagem: 'Olá Maria, mensagem automática!' },
+      { nome: 'Carlos Pereira', numero: '5511977777777', mensagem: 'Fala Carlos, essa é uma mensagem teste.' },
+      { nome: 'Ana Santos', numero: '5511966666666', mensagem: 'Oi Ana, como está?' },
+        { nome: 'Fernanda Costa', numero: '5511955555555', mensagem: 'Olá Fernanda, tudo certo?' },
+        { nome: 'Roberto Almeida', numero: '5511944444444', mensagem: 'Oi Roberto, mensagem de teste.' },
+        { nome: 'Patrícia Lima', numero: '5511933333333', mensagem: 'Olá Patrícia, tudo bem?' },
+        { nome: 'Lucas Martins', numero: '5511922222222', mensagem: 'Fala Lucas, como vai?' },
+        { nome: 'Juliana Rocha', numero: '5511911111111', mensagem: 'Oi Juliana, tudo tranquilo?' },
+        { nome: 'Ricardo Souza', numero: '5511900000000', mensagem: 'Olá Ricardo, mensagem automática!' }
+    ];
+
+    const listaContatos = document.getElementById('listaContatos');
+    const btnEnviar = document.getElementById('enviar');
+
+    // Cria o HTML da lista de contatos com checkbox
+    function renderContatos() {
+      listaContatos.innerHTML = '';
+      contatos.forEach((contato, index) => {
+        const li = document.createElement('li');
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = `contato-${index}`;
+        checkbox.dataset.index = index;
+
+        checkbox.addEventListener('change', atualizarBotao);
+
+        const label = document.createElement('label');
+        label.htmlFor = `contato-${index}`;
+        label.className = 'contato-info';
+        label.innerHTML = `<strong>${contato.nome}</strong><small>${contato.numero}</small><small>${contato.mensagem}</small>`;
+
+        li.appendChild(checkbox);
+        li.appendChild(label);
+        listaContatos.appendChild(li);
+      });
+    }
+
+    // Ativa ou desativa botão enviar conforme seleção
+    function atualizarBotao() {
+      const selecionados = document.querySelectorAll('input[type=checkbox]:checked');
+      btnEnviar.disabled = selecionados.length === 0;
+    }
+
+    // Função para enviar (aqui só mostra no console)
+    btnEnviar.addEventListener('click', () => {
+      const selecionados = document.querySelectorAll('input[type=checkbox]:checked');
+      const enviados = [];
+      selecionados.forEach(input => {
+        const contato = contatos[input.dataset.index];
+        enviados.push(`${contato.nome} (${contato.numero}): ${contato.mensagem}`);
+      });
+      alert('Enviando mensagens para:\n\n' + enviados.join('\n\n'));
+    });
+
+    renderContatos();
+  </script>
+</body>
+</html>

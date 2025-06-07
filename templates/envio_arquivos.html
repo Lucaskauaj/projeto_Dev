@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lista de Arquivos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='contatos.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="/">Sobre</a></li> 
+      <li><a href="/adicionar_cont">Adicionar Contatos</a></li>
+      <li><a href="/arquivos">Enviar Arquivo</a></li>
+      <li><a href="/List">Lista de Contatos</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <h2>Lista de Arquivos</h2>
+    <ul class="contatos" id="listaArquivos">
+      <!-- Arquivos serão inseridos aqui via JS -->
+    </ul>
+    <button id="enviar" disabled>Enviar Mensagens</button>
+  </div>
+
+  <script>
+    const arquivos = [
+      { destinario:'roberto', nome: 'relatorio.pdf', tamanho: '2 MB', descricao: 'Relatório financeiro de 2024' },
+      { destinario: 'roberto', nome: 'foto.jpg', tamanho: '1.2 MB', descricao: 'Foto do evento' },
+      { destinario: 'roberto', nome: 'apresentacao.pptx', tamanho: '3.5 MB', descricao: 'Slides da reunião' },
+      { destinario: 'roberto', nome: 'contrato.docx', tamanho: '800 KB', descricao: 'Contrato assinado' },
+      { destinario: 'roberto', nome: 'planilha.xlsx', tamanho: '600 KB', descricao: 'Planilha de custos' }
+    ];
+
+    const listaArquivos = document.getElementById('listaArquivos');
+    const btnEnviar = document.getElementById('enviar');
+
+    function renderArquivos() {
+      listaArquivos.innerHTML = '';
+      arquivos.forEach((arquivo, index) => {
+        const li = document.createElement('li');
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = `arquivo-${index}`;
+        checkbox.dataset.index = index;
+        checkbox.addEventListener('change', atualizarBotao);
+
+        const label = document.createElement('label');
+        label.htmlFor = `arquivo-${index}`;
+        label.className = 'contato-info';
+        label.innerHTML = `
+          <strong>${arquivo.destinario}</strong>
+          <strong>${arquivo.nome}</strong>
+          <small>${arquivo.tamanho}</small>
+          <small>${arquivo.descricao}</small>
+        `;
+
+        li.appendChild(checkbox);
+        li.appendChild(label);
+        listaArquivos.appendChild(li);
+      });
+    }
+
+    function atualizarBotao() {
+      const selecionados = document.querySelectorAll('#listaArquivos input[type=checkbox]:checked');
+      btnEnviar.disabled = selecionados.length === 0;
+    }
+
+    btnEnviar.addEventListener('click', () => {
+      const selecionados = document.querySelectorAll('#listaArquivos input[type=checkbox]:checked');
+      const enviados = [];
+      selecionados.forEach(input => {
+        const arquivo = arquivos[input.dataset.index];
+        enviados.push(`${arquivo.nome} (${arquivo.tamanho}): ${arquivo.descricao}`);
+      });
+      alert('Enviando arquivos:\n\n' + enviados.join('\n\n'));
+    });
+
+    renderArquivos();
+  </script>
+</body>
+</html>

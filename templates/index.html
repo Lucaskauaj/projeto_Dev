@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chatbot WhatsApp</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="/">Sobre</a></li>
+      <li><a href="/adicionar_cont">Adicionar Contatos</a></li>
+      <li><a href="/arquivos">Enviar Arquivo</a></li>
+      <li><a href="/List">Lista de Contatos</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>Sobre o ChatBot</h2>
+    <p>
+      Este é um chatbot desenvolvido para interagir com usuários via WhatsApp, permitindo o envio de mensagens e arquivos de forma automatizada.<br><br>
+      Com ele, você pode cadastrar contatos, enviar mensagens em massa, compartilhar arquivos e gerenciar sua lista de destinatários de maneira simples e eficiente. O sistema utiliza autenticação via QR Code para conectar ao WhatsApp Web, garantindo praticidade e segurança.<br><br>
+      Ideal para empresas, equipes de vendas, suporte ou qualquer pessoa que precise automatizar o contato com vários usuários pelo WhatsApp.<br><br>
+    </p>
+  </div>
+
+  <!-- Espaço para as fotos dos desenvolvedores -->
+  <div class="devs-fotos">
+    <div class="dev-foto">
+      <img src="{{ url_for('static', filename='img/l.webp') }}" alt="Lucas Kauã">
+      <span>Dev. Back-end: Lucas Kauã</span>
+    </div>
+    <div class="dev-foto">
+      <img src="{{ url_for('static', filename='img/panda-fofinho-com-bambu_138676-3053.avif') }}" alt="Sandriely França">
+      <span>Dev. Front-end: Sandriely França</span>
+    </div>
+  </div>
+
+  <!-- scripts -->
+</body>
+</html>
