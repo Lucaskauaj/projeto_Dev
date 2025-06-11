@@ -2,58 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Garante que acentos e caracteres especiais aparecem certinho -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Faz a página ficar boa em celular e computador -->
     <title>Document</title>
-    <!-- O nome que aparece na aba do navegador -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <!-- Pega um arquivo de estilos para deixar a página mais bonita -->
 </head>
 <body>
     <nav class="navbar">
-    <!-- Menu de navegação, tipo aqueles botões para ir para outras páginas -->
     <ul>
       <li><a href="/">Sobre</a></li>
-      <!-- Vai para a página "Sobre" -->
       <li><a href="/adicionar_cont">Adicionar Contatos</a></li>
-      <!-- Vai para a página de adicionar contatos -->
       <li><a href="/arquivos">Enviar Arquivo</a></li>
-      <!-- Vai para a página de enviar arquivos -->
       <li><a href="/List">Lista de Contatos</a></li>
-      <!-- Vai para a lista de contatos -->
     </ul>
   </nav>
 
      <div class="container">
-    <!-- Um quadrado para colocar o conteúdo principal -->
     <h2>🤖 WhatsApp Chatbot</h2>
-    <!-- Título da página -->
 
     <div id="qr">
       <h3>QR Code</h3>
-      <!-- Título do QR Code -->
       <img id="qrcode" src="" alt="O QR Code vai aparecer aqui" width="250" />
-      <!-- Aqui vai aparecer o QR Code para conectar no WhatsApp -->
     </div>
 
     <h3 id="adicionar">Adicionar Contatos</h3>
-    <!-- Título da parte de adicionar contatos -->
     <div class="form-section">
-      <!-- Área do formulário para digitar os dados do contato -->
       <input type="text" id="nome" placeholder="Nome">
-      <!-- Onde digita o nome do contato -->
       <input type="text" id="numero" placeholder="Número com DDI (ex: 5511999999999)">
-      <!-- Onde digita o número do contato -->
       <textarea id="mensagem" placeholder="Mensagem"></textarea>
-      <!-- Onde digita a mensagem que vai ser enviada -->
     </div>
     <div class="d-grid gap-2">
-    <!-- Div para organizar os botões -->
     <button onclick="enviarMensagens()" class="btn btn-primary" type="button">Enviar Mensagens</button>
-    <!-- Botão para enviar mensagens para os contatos -->
-    <button onclick="adicionarContato()"class="btn btn-primary" type="button">Adicionar contato</button>
-    <!-- Botão para adicionar o contato na lista -->
+    <button onclick="adicionarContato()" class="btn btn-primary" type="button">Adicionar contato</button>
     </div>
 </div>
 </body>
