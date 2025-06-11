@@ -1,54 +1,30 @@
 <!DOCTYPE html>
-<!-- Diz que essa página é moderna (HTML5) -->
-
 <html lang="pt-br">
-<!-- A página está em português do Brasil -->
-
 <head>
   <meta charset="UTF-8" />
-  <!-- Garante que acentos e caracteres especiais aparecem certinho -->
-
   <title>Lista de Contatos</title>
-  <!-- O nome que aparece na aba do navegador -->
-
   <link rel="stylesheet" href="{{ url_for('static', filename='contatos.css') }}">
-  <!-- Pega um arquivo de estilos para deixar a página mais bonita -->
-
   <style>
   </style>
-  <!-- Espaço para colocar estilos direto aqui, mas está vazio -->
 </head>
 <body>
-  <!-- Aqui começa o que aparece de verdade na tela -->
-
   <nav class="navbar">
-    <!-- Menu de navegação, tipo aqueles botões para ir para outras páginas -->
     <ul>
       <li><a href="/">Sobre</a></li>
-      <!-- Vai para a página "Sobre" -->
       <li><a href="/adicionar_cont">Adicionar Contatos</a></li>
-      <!-- Vai para a página de adicionar contatos -->
       <li><a href="/arquivos">Enviar Arquivo</a></li>
-      <!-- Vai para a página de enviar arquivos -->
       <li><a href="/List">Lista de Contatos</a></li>
-      <!-- Vai para a lista de contatos -->
     </ul>
   </nav>
 
   <div class="container">
-    <!-- Um quadrado para colocar o conteúdo principal -->
     <h2>Lista de Contatos</h2>
-    <!-- Título da página -->
-
     <ul class="contatos" id="listaContatos">
-      <!-- Aqui vai aparecer a lista de contatos, que o JavaScript vai colocar -->
     </ul>
     <button id="enviar" type="button" class="btn btn-outline-primary">Enviar Mensagens</button>
-    <!-- Botão para enviar mensagens para os contatos selecionados -->
   </div>
 
   <script>
-    // Aqui está a lista de contatos, cada um com nome, número e mensagem
     const contatos = [
       { nome: 'João Silva', numero: '5511999999999', mensagem: 'Oi João, tudo bem?' },
       { nome: 'Maria Oliveira', numero: '5511988888888', mensagem: 'Olá Maria, mensagem automática!' },
@@ -62,11 +38,9 @@
       { nome: 'Ricardo Souza', numero: '5511900000000', mensagem: 'Olá Ricardo, mensagem automática!' }
     ];
 
-    // Pega a lista onde os contatos vão aparecer e o botão de enviar
     const listaContatos = document.getElementById('listaContatos');
     const btnEnviar = document.getElementById('enviar');
 
-    // Função que monta a lista de contatos na tela, cada um com uma caixinha de seleção
     function renderContatos() {
       listaContatos.innerHTML = '';
       contatos.forEach((contato, index) => {
@@ -90,13 +64,11 @@
       });
     }
 
-    // Ativa ou desativa o botão de enviar dependendo se alguém foi selecionado
     function atualizarBotao() {
       const selecionados = document.querySelectorAll('input[type=checkbox]:checked');
       btnEnviar.disabled = selecionados.length === 0;
     }
 
-    // Quando clicar no botão, mostra um alerta dizendo para quem as mensagens seriam enviadas
     btnEnviar.addEventListener('click', () => {
       const selecionados = document.querySelectorAll('input[type=checkbox]:checked');
       const enviados = [];
@@ -107,7 +79,6 @@
       alert('Enviando mensagens para:\n\n' + enviados.join('\n\n'));
     });
 
-    // Chama a função para mostrar os contatos na tela
     renderContatos();
   </script>
 </body>

@@ -1,78 +1,67 @@
-/* Aqui começa o estilo do site, que deixa tudo mais bonito */
-
-/* O corpo da página (tudo que aparece) */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte das letras */
-  text-align: justify; /* Deixa o texto alinhado dos dois lados */
-  background: linear-gradient(135deg, #cdd9ff 0%, #c2b7ff 100%); /* Fundo colorido em degradê */
-  margin: 0; /* Tira a margem padrão */
-  padding: 0; /* Tira o espaço interno padrão */
-  min-height: 100vh; /* Faz a página ocupar a tela toda */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: justify;
+  background: linear-gradient(135deg, #cdd9ff 0%, #c2b7ff 100%);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
-/* Menu azul lá em cima */
 .navbar {
-  background: #2563eb; /* Cor azul */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07); /* Sombra embaixo do menu */
+  background: #2563eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
   padding: 0;
 }
 
-/* Lista dos botões do menu */
 .navbar ul {
-  display: flex; /* Deixa os botões um do lado do outro */
-  list-style: none; /* Tira as bolinhas da lista */
+  display: flex;
+  list-style: none;
   margin: 0;
   padding: 0 20px;
-  justify-content: center; /* Centraliza os botões */
+  justify-content: center;
 }
 
-/* Cada botão do menu */
 .navbar li {
-  margin: 0 18px; /* Espaço entre os botões */
+  margin: 0 18px;
 }
 
-/* O link do menu (o botão mesmo) */
 .navbar a {
   display: block;
-  padding: 18px 14px; /* Espaço dentro do botão */
-  color: #fff; /* Cor da letra: branco */
-  font-weight: 600; /* Deixa a letra mais grossa */
-  text-decoration: none; /* Tira o sublinhado */
-  border-radius: 8px; /* Cantos arredondados */
-  transition: background 0.2s, color 0.2s; /* Animação quando passa o mouse */
+  padding: 18px 14px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
   font-size: 1.08rem;
   letter-spacing: 0.5px;
 }
 
-/* Quando passa o mouse no botão do menu */
 .navbar a:hover,
 .navbar a:focus {
-  background: #1e40af; /* Fica azul escuro */
-  color: #e0e7ff; /* Letra fica azul clarinho */
+  background: #1e40af;
+  color: #e0e7ff;
 }
 
-/* Quadrado branco onde fica o conteúdo principal */
 .container {
   background: #fff;
   padding: 30px;
-  border-radius: 18px; /* Cantos arredondados */
-  box-shadow: 0 6px 24px rgba(37,99,235,0.08); /* Sombra */
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(37,99,235,0.08);
   width: 100%;
-  max-width: 600px; /* Não fica muito largo */
-  margin: 40px auto 0 auto; /* Centraliza na tela */
+  max-width: 600px;
+  margin: 40px auto 0 auto;
 }
 
-/* Títulos grandes e médios */
 h2, h3 {
-  color: #2563eb; /* Azul */
+  color: #2563eb;
   margin-bottom: 15px;
   text-align: center;
   letter-spacing: 1px;
 }
 
-/* Caixas de texto, área de mensagem e botões */
 input, textarea, button {
-  width: 100%; /* Ocupa toda a largura */
+  width: 100%;
   padding: 10px;
   margin-top: 8px;
   margin-bottom: 15px;
@@ -82,41 +71,35 @@ input, textarea, button {
   box-sizing: border-box;
 }
 
-/* Área de mensagem pode ser aumentada */
 textarea {
   resize: vertical;
   min-height: 80px;
 }
 
-/* Botão normal */
 button {
-  background-color: #2563eb; /* Azul */
-  color: white; /* Letra branca */
+  background-color: #2563eb;
+  color: white;
   font-weight: bold;
   border: none;
-  cursor: pointer; /* Muda o mouse para mãozinha */
+  cursor: pointer;
   transition: background-color 0.2s ease;
   border-radius: 6px;
 }
 
-/* Botão quando passa o mouse */
 button:hover {
-  background-color: #1e40af; /* Azul escuro */
+  background-color: #1e40af;
 }
 
-/* Centraliza o QR Code */
 #qr {
   text-align: center;
   margin-bottom: 30px;
 }
 
-/* Mensagens de status */
 #statusArquivo, #status {
   margin-top: 15px;
   color: #666;
 }
 
-/* Cada contato na lista de contatos */
 #lista-contatos .contato {
   background-color: #f8f8f8;
   padding: 10px;
@@ -125,13 +108,11 @@ button:hover {
   border: 1px solid #ddd;
 }
 
-/* Nome do contato em negrito */
 #lista-contatos .contato strong {
   display: block;
   color: #333;
 }
 
-/* Fotos dos desenvolvedores */
 .devs-fotos {
   display: flex;
   justify-content: center;
@@ -171,7 +152,6 @@ button:hover {
   letter-spacing: 0.5px;
 }
 
-/* Deixa o site bonito no celular */
 @media (max-width: 700px) {
   .container {
     padding: 18px 6px 18px 6px;

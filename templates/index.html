@@ -1,63 +1,37 @@
 <!DOCTYPE html>
-<!-- Isso diz ao navegador que o arquivo é uma página da web moderna (HTML5) -->
-
 <html lang="pt-br">
-<!-- Aqui começa a página, dizendo que está em português do Brasil -->
-
 <head>
   <meta charset="UTF-8" />
-  <!-- Isso garante que acentos e caracteres especiais apareçam certinho -->
-
   <title>Chatbot WhatsApp</title>
-  <!-- O nome que aparece na aba do navegador -->
-
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <!-- Aqui ele pega um arquivo chamado style.css para deixar a página mais bonita -->
-
   <style>
   </style>
-  <!-- Espaço para colocar estilos direto aqui, mas está vazio -->
 </head>
-
 <body>
-  <!-- Aqui começa o que aparece de verdade na tela -->
-
   <nav class="navbar">
-    <!-- Menu de navegação, tipo aqueles botões para ir para outras páginas -->
     <ul>
       <li><a href="/">Sobre</a></li>
-      <!-- Botão que leva para a página "Sobre" -->
       <li><a href="/adicionar_cont">Adicionar Contatos</a></li>
-      <!-- Botão para adicionar contatos -->
       <li><a href="/arquivos">Enviar Arquivo</a></li>
-      <!-- Botão para enviar arquivos -->
       <li><a href="/List">Lista de Contatos</a></li>
-      <!-- Botão para ver a lista de contatos -->
     </ul>
   </nav>
 
   <div class="container">
-    <!-- Um quadrado para colocar o texto principal da página -->
     <h2>Sobre o ChatBot</h2>
-    <!-- Título grandão explicando o que é o ChatBot -->
     <p>
-      <!-- Parágrafo explicando o que o site faz -->
       Este é um chatbot desenvolvido para interagir com usuários via WhatsApp, permitindo o envio de mensagens e arquivos de forma automatizada.<br><br>
       Com ele, você pode cadastrar contatos, enviar mensagens em massa, compartilhar arquivos e gerenciar sua lista de destinatários de maneira simples e eficiente. O sistema utiliza autenticação via QR Code para conectar ao WhatsApp Web, garantindo praticidade e segurança.<br><br>
       Ideal para empresas, equipes de vendas, suporte ou qualquer pessoa que precise automatizar o contato com vários usuários pelo WhatsApp.<br><br>
     </p>
   </div>
 
-  <!-- Espaço para as fotos dos desenvolvedores -->
   <div class="devs-fotos">
-    <!-- Um quadrado para colocar as fotos dos criadores do site -->
     <div class="dev-foto">
-      <!-- Foto e nome do primeiro desenvolvedor -->
       <img src="{{ url_for('static', filename='img/l.webp') }}" alt="Lucas Kauã">
       <span>Dev. Back-end: Lucas Kauã</span>
     </div>
     <div class="dev-foto">
-      <!-- Foto e nome da segunda desenvolvedora -->
       <img src="{{ url_for('static', filename='img/panda-fofinho-com-bambu_138676-3053.avif') }}" alt="Sandriely França">
       <span>Dev. Front-end: Sandriely França</span>
     </div>

@@ -1,49 +1,29 @@
 <!DOCTYPE html>
-<!-- Diz que essa página é moderna (HTML5) -->
-
 <html lang="pt-br">
-<!-- A página está em português do Brasil -->
-
 <head>
   <meta charset="UTF-8" />
-  <!-- Garante que acentos e caracteres especiais aparecem certinho -->
-
   <title>Lista de Arquivos</title>
-  <!-- O nome que aparece na aba do navegador -->
-
   <link rel="stylesheet" href="{{ url_for('static', filename='contatos.css') }}">
-  <!-- Pega um arquivo de estilos para deixar a página mais bonita -->
+  <style>
+  </style>
 </head>
 <body>
-  <!-- Aqui começa o que aparece de verdade na tela -->
-
   <nav class="navbar">
-    <!-- Menu de navegação, tipo aqueles botões para ir para outras páginas -->
     <ul>
       <li><a href="/">Sobre</a></li> 
-      <!-- Vai para a página "Sobre" -->
       <li><a href="/adicionar_cont">Adicionar Contatos</a></li>
-      <!-- Vai para a página de adicionar contatos -->
       <li><a href="/arquivos">Enviar Arquivo</a></li>
-      <!-- Vai para a página de enviar arquivos -->
       <li><a href="/List">Lista de Contatos</a></li>
-      <!-- Vai para a lista de contatos -->
     </ul>
   </nav>
   <div class="container">
-    <!-- Um quadrado para colocar o conteúdo principal -->
     <h2>Lista de Arquivos</h2>
-    <!-- Título da página -->
-
     <ul class="contatos" id="listaArquivos">
-      <!-- Aqui vai aparecer a lista de arquivos, que o JavaScript vai colocar -->
     </ul>
     <button id="enviar" disabled>Enviar Mensagens</button>
-    <!-- Botão para enviar arquivos selecionados, começa desativado -->
   </div>
 
   <script>
-    // Aqui está a lista de arquivos, cada um com destinatário, nome, tamanho e descrição
     const arquivos = [
       { destinario:'roberto', nome: 'relatorio.pdf', tamanho: '2 MB', descricao: 'Relatório financeiro de 2024' },
       { destinario: 'roberto', nome: 'foto.jpg', tamanho: '1.2 MB', descricao: 'Foto do evento' },
@@ -52,11 +32,9 @@
       { destinario: 'roberto', nome: 'planilha.xlsx', tamanho: '600 KB', descricao: 'Planilha de custos' }
     ];
 
-    // Pega a lista onde os arquivos vão aparecer e o botão de enviar
     const listaArquivos = document.getElementById('listaArquivos');
     const btnEnviar = document.getElementById('enviar');
 
-    // Função que monta a lista de arquivos na tela, cada um com uma caixinha de seleção
     function renderArquivos() {
       listaArquivos.innerHTML = '';
       arquivos.forEach((arquivo, index) => {
@@ -84,13 +62,11 @@
       });
     }
 
-    // Ativa ou desativa o botão de enviar dependendo se algum arquivo foi selecionado
     function atualizarBotao() {
       const selecionados = document.querySelectorAll('#listaArquivos input[type=checkbox]:checked');
       btnEnviar.disabled = selecionados.length === 0;
     }
 
-    // Quando clicar no botão, mostra um alerta dizendo quais arquivos seriam enviados
     btnEnviar.addEventListener('click', () => {
       const selecionados = document.querySelectorAll('#listaArquivos input[type=checkbox]:checked');
       const enviados = [];
@@ -101,7 +77,6 @@
       alert('Enviando arquivos:\n\n' + enviados.join('\n\n'));
     });
 
-    // Chama a função para mostrar os arquivos na tela
     renderArquivos();
   </script>
 </body>
